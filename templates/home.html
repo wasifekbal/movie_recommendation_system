@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/pic/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/pic/favicon-16x16.png">
+    <link rel="manifest" href="/static/pic/site.webmanifest">
+
+    <title>Movie Recommendation System</title>
+</head>
+
+<body class="bg" onload="loader()" style="height: 100%;">
+    <div id="loading"></div>
+    <nav class="navbar navbar-expand-sm navbar-light bg-dark text-light">
+        <a class="navbar-brand text-light" href="/">Movie Recomendation System
+            <span class='beta'>beta</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <h5 class="form-inline my-1 mx-2 mr-lg-4 mr-sm-0">Welcome</h5>
+                <a href="https://www.wasifekbal.ml" onclick="activate_loader()" class="btn btn-outline-info text-light mx-3 mx-sm-0">About me</a>
+            </form>
+        </div>
+    </nav>
+    <div class="container" style="text-align: center;">
+        <div class="row search-box">
+            <div class="col-sm-1 col-lg-3"></div>
+            <div class="col-sm-10 col-lg-6" style="text-align: center;">
+                <form method="POST" action="/check">
+                    <div class="form-group">
+                        <input class="form-control input-lg" required="1" name="movie_name" id="movie_name"
+                            placeholder="Name of the movie" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" style="margin-top: 3%;" name="submit"
+                            class="btn search_btn btn-success btn-lg border border-light" onclick="activate_loader_check()"
+                            value="Predict">
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-1 col-lg-3"></div>
+        </div>
+    </div>
+    <footer class="font-small footer">
+        <div class="text-center py-3 text-white">© 2020 Copyright: <span class="text-light">
+            <a class="border border-success text-light" href="https://www.wasifekbal.ml" onclick="activate_loader()">Wasif Ekbal</a></span></div>
+    </footer>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        var preloader = document.getElementById('loading');
+        function loader() {
+            preloader.style.display = "none";
+        }
+        function activate_loader() {
+            preloader.style.display = "block";
+        }
+        function activate_loader_check() {
+            var check = document.getElementById('movie_name');
+            if (check.value.length != 0) {
+                preloader.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>
